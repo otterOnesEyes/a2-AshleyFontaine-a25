@@ -21,6 +21,8 @@ const submit = async function( event ) {
 
   const text = await response.text()
 
+  document.querySelector('#yourcolor').value = "nah that one sucks"
+
   console.log( "text:", text )
 }
 

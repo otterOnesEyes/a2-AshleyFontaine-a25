@@ -47,8 +47,7 @@ const handlePost = function( request, response ) {
     // ... do something with the data here!!!
 
     response.write("Alright " + jsObject.yourname)
-    document.querySelector('#yourcolor').value = "nah that sucks"
-
+    
     response.writeHead( 200, "OK", {"Content-Type": "text/plain" })
     response.end("test")
   })
