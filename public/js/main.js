@@ -7,8 +7,11 @@ const submit = async function( event ) {
   // remains to this day
   event.preventDefault()
   
-  const input = document.querySelector( "#yourname" ),
-        json = { yourname: input.value },
+  const nameinput = document.querySelector( "#yourname" ),
+        ageinput = document.querySelector( '#yourage' ),
+        colorinput = document.querySelector( '#yourcolor' ),
+        json = { yourname: nameinput.value, yourage: ageinput.value, yourcolor: colorinput.value
+        },
         body = JSON.stringify( json )
 
   const response = await fetch( "/submit", {
