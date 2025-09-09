@@ -1,22 +1,59 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>CS4241 Assignment 2</title>
-    <meta charset="utf-8">
-    <script src="js/main.js"></script>
-    <link rel="stylesheet" href="css/main.css">
-    
-    <!-- get rid of favicon error -->
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-  </head>
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <title>CS4241 Assignment 2</title>
+      <meta charset="utf-8">
+      <script src="js/main.js"></script>
+      <link rel="stylesheet" href="css/main.css">
+      
+      <!-- get rid of favicon error -->
+      <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    </head>
   <body>
-    <form>
-      <input type="text" id="yourname" value="your name here">
-      <br>
-      <input type="text" id="yourage" value="your age here">
-      <br>
-      <input type="text" id="yourcolor" value="your favorite color here">
-      <button>submit</button>
-    </form>
+    <div style="width: 100%; overflow: hidden;">
+      <div id="left">
+        <form>
+          <div style="width: 60%;">
+            <label for="username">Username</label>
+            <input type="text" id="username">
+            <br>
+            <label for="password">Password</label>
+            <input type="password" id="password">
+            <br>
+            <label for="score">Score</label>
+            <input type="number" id="score" value="0" min="0" max="1000000">
+            <br>
+            <label for="combo">Max Combo</label>
+            <input type="number" id="combo" value="0" min="0" max="1000">
+          </div>
+          <br>
+          <br>
+          <p>Accuracy Breakdown</p>
+          <input type="number" id="marvelous" value="0" min="0" max="1000">
+          <input type="number" id="great" value="0" min="0" max="1000">
+          <input type="number" id="good" value="0" min="0" max="1000">
+          <input type="number" id="miss" value="0" min="0" max="1000">
+          <br><br>
+          <button>submit</button>
+        </form>
+        <br>
+        <form>
+          <label for="username">Username</label>
+          <input type="text" id="username">
+          <br>
+          <label for="password">Password</label>
+          <input type="password" id="password">
+          <br><br>
+          <button>submit</button>
+        </form>
+      </div>
+      <div id="right">
+        <table>
+
+        </table>
+      </div>
+    </div>
+    
+    
   </body>
 </html>

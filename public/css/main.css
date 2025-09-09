@@ -1,4 +1,24 @@
 body {
   background:black;
-  color:white;
+  color:black;
+}
+
+#left {
+  width: calc(50% - 20px);
+  background-color: aliceblue;
+  float: left;
+  padding: 10px;
+}
+
+#right {
+  width: 50%;
+  background-color: rgb(255, 255, 255);
+  margin-left: 50%;
+  height: 300px;
+}
+
+label {
+}
+
+input {
 }

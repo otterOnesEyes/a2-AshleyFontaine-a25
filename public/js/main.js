@@ -7,15 +7,28 @@ const submit = async function( event ) {
   // remains to this day
   event.preventDefault()
   
-  const nameinput = document.querySelector( "#yourname" ),
-        ageinput = document.querySelector( '#yourage' ),
-        colorinput = document.querySelector( '#yourcolor' ),
-        json = { yourname: nameinput.value, yourage: ageinput.value, yourcolor: colorinput.value
+  const uninput = document.querySelector( "#eusername" ),
+        pwdinput = document.querySelector( '#epassword' ),
+        scoreinput = document.querySelector( '#score' ),
+        comboinput = document.querySelector( '#combo' ),
+        mainput = document.querySelector( '#marvelous' ),
+        grinput = document.querySelector( '#great' ),
+        goinput = document.querySelector( '#good' ),
+        miinput = document.querySelector( '#miss' ),
+        json = { player: uninput.value, 
+                 password: pwdinput.value, 
+                 score: scoreinput.value,
+                 combo: comboinput.value,
+                 marvelous: mainput.value,
+                 great: grinput.value,
+                 good: goinput.value,
+                 miss: miinput.value
         },
         body = JSON.stringify( json )
 
-  const response = await fetch( "/submit", {
+  const response = await fetch( "/entry", {
     method:"POST",
+    type: "entry",
     body 
   })
 
@@ -26,7 +39,29 @@ const submit = async function( event ) {
   console.log( "text:", text )
 }
 
+const remove = async function( event ) {
+  event.preventDefault()
+
+    const uninput = document.querySelector( '#dusername' ),
+          pwdinput = document.querySelector( '#dpassword' ),
+          json = { player: uninput.value,
+                   password: pwdinput.value
+          },
+          body = JSON.stringify( json )
+
+    const response = await fetch( "/submit", {
+      method:"POST",
+      type: "delete",
+      body
+    })
+
+}
+
+
+
 window.onload = function() {
-   const button = document.querySelector("button");
-  button.onclick = submit;
+   const entrybutton = document.querySelector("entrybutton"),
+         deletebutton = document.querySelector("deletebutton");
+  entrybutton.onclick = submit;
+  deletebutton.onclick = remove;
 }
