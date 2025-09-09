@@ -60,8 +60,8 @@ const remove = async function( event ) {
 
 
 window.onload = function() {
-   const entrybutton = document.querySelector("entrybutton"),
-         deletebutton = document.querySelector("deletebutton");
+   const entrybutton = document.querySelector("#entrybutton"),
+         deletebutton = document.querySelector("#deletebutton");
   entrybutton.onclick = submit;
   deletebutton.onclick = remove;
 }
