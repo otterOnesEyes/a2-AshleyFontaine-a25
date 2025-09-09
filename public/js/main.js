@@ -34,7 +34,7 @@ const submit = async function( event ) {
 
   const text = await response.text()
 
-  document.querySelector("leaderboard").innerHTML = text
+  document.querySelector("#leaderboard").innerHTML = text
 
   console.log( "text:", text )
 }
@@ -42,22 +42,20 @@ const submit = async function( event ) {
 const remove = async function( event ) {
   event.preventDefault()
 
-    const uninput = document.querySelector( '#dusername' ),
-          pwdinput = document.querySelector( '#dpassword' ),
-          json = { player: uninput.value,
-                   password: pwdinput.value
-          },
-          body = JSON.stringify( json )
+  const uninput = document.querySelector( '#dusername' ),
+        pwdinput = document.querySelector( '#dpassword' ),
+        json = { player: uninput.value,
+                  password: pwdinput.value
+        },
+        body = JSON.stringify( json )
 
-    const response = await fetch( "/delete", {
-      method:"POST",
-      type: "delete",
-      body
-    })
+  const response = await fetch( "/delete", {
+    method:"POST",
+    type: "delete",
+    body
+  })
 
 }
-
-
 
 window.onload = function() {
    const entrybutton = document.querySelector("#entrybutton"),
