@@ -93,11 +93,27 @@ const handlePost = function( request, response ) {
       alert("User not found!")
     }
 
-    
+    lb = constructLeaderboard()
+
     response.writeHead( 200, "OK", {"Content-Type": "text/plain" })
-    response.write("Alright " + jsObject.yourname)
-    response.end("test")
+    response.end(lb)
   })
+}
+
+const constructLeaderboard = function () {
+  lb = "<tr><th>Rank</th><th>Player</th><th>Score</th><th>Grade</th><th>Combo</th><th>Complete</th></tr>"
+  for(let i = 0; i < appdata.length; i++){
+    e = appdata[i]
+    lb += "<tr><td>" +
+          (i+1) + "</td><td>" +
+          e.player + "</td><td>" +
+          e.score + "</td><td>" +
+          e.grade + "</td><td>" +
+          e.combo + "</td><td>" +
+          e.completion +
+          "</td></tr>"
+  }
+  return lb
 }
 
 const evalComplete = function (marv, great, good, miss){

@@ -34,7 +34,7 @@ const submit = async function( event ) {
 
   const text = await response.text()
 
-  document.querySelector('#yourcolor').value = "nah that one sucks"
+  document.querySelector("leaderboard").innerHTML = text
 
   console.log( "text:", text )
 }
@@ -49,7 +49,7 @@ const remove = async function( event ) {
           },
           body = JSON.stringify( json )
 
-    const response = await fetch( "/submit", {
+    const response = await fetch( "/delete", {
       method:"POST",
       type: "delete",
       body
