@@ -69,7 +69,7 @@ const handlePost = function( request, response ) {
       }
 
       entry = appdata[appdata.length]
-      entry.player == jsObject.player
+      entry.player = jsObject.player
       entry.password = jsObject.password
       entry.score = jsObject.score
       entry.class = grade
