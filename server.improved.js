@@ -89,9 +89,10 @@ const handlePost = function( request, response ) {
       let foundEntry = false
       for(let i = 0 ; i < appdata.length; i++){
         if(appdata[i].player == jsObject.player){
+          console.log("Deleting...")
           foundEntry = true
           if(appdata[i].password == jsObject.password){
-            appdata[i] == ""
+            appdata[i] = ""
           } else {
             console.log("Incorrect Password!")
             return
