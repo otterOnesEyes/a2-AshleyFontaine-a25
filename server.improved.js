@@ -45,7 +45,6 @@ const handlePost = function( request, response ) {
     if(request.url === "/entry"){
 
       const grade = gradeScore(jsObject.score)
-      console.log(grade)
       const completion = evalComplete(jsObject.marvelous, jsObject.great, jsObject.good, jsObject.miss)
 
       let foundEntry = false
@@ -115,7 +114,7 @@ const handlePost = function( request, response ) {
 
 const constructLeaderboard = function () {
   appdata.sort((a, b) => b.score - a.score)
-  lb = "<tr><th>Rank</th><th>Player</th><th>Score</th><th>Grade</th><th>Combo</th><th>Complete</th></tr>"
+  lb = "<tr id=lbhead><th>Rank</th><th>Player</th><th>Score</th><th>Grade</th><th>Combo</th><th>Complete</th></tr>"
   for(let i = 0; i < appdata.length; i++){
     e = appdata[i]
     lb += "<tr><td>" +
@@ -146,7 +145,6 @@ const evalComplete = function (marv, great, good, miss){
 }
 
 const gradeScore = function( score ) {
-  console.log(score)
   switch(true){
     case(score == 1000000):
       return "MASTER"
