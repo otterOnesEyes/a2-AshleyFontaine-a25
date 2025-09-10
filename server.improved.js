@@ -42,8 +42,8 @@ const handlePost = function( request, response ) {
   request.on( "end", function() {
     console.log( JSON.parse( dataString ) )
     jsObject = JSON.parse( dataString )
-
-    if(jsObject.type === "entry"){
+    console.log(jsObject.type)
+    if(jsObject.type == "entry"){
 
       const grade = gradeScore(jsObject.score)
       const completion = evalComplete(jsObject.marvelous, jsObject.great, jsObject.good, jsObject.miss)
