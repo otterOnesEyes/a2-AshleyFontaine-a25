@@ -28,7 +28,6 @@ const submit = async function( event ) {
 
   const response = await fetch( "/entry", {
     method:"POST",
-    type: "entry",
     body 
   })
 
@@ -51,10 +50,14 @@ const remove = async function( event ) {
 
   const response = await fetch( "/delete", {
     method:"POST",
-    type: "delete",
     body
   })
 
+  const text = await response.text()
+
+  document.querySelector("#leaderboard").innerHTML = text
+
+  console.log( "text:", text )
 }
 
 window.onload = function() {

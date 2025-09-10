@@ -42,8 +42,8 @@ const handlePost = function( request, response ) {
   request.on( "end", function() {
     console.log( JSON.parse( dataString ) )
     jsObject = JSON.parse( dataString )
-    console.log(jsObject.type)
-    if(jsObject.type == "entry"){
+    console.log(jsObject.score)
+    if(request.url === "/entry"){
 
       const grade = gradeScore(jsObject.score)
       const completion = evalComplete(jsObject.marvelous, jsObject.great, jsObject.good, jsObject.miss)
@@ -80,7 +80,7 @@ const handlePost = function( request, response ) {
       entry.miss = jsObject.miss
       entry.completion = completion
 
-    } else if (jsObject.type == "delete"){
+    } else if (request.url === "/delete"){
       for(let i = 0 ; i < appdata.length; i++){
         if(appdata[i].player == jsObject.player){
           if(appdata[i].password == jsObject.password){
