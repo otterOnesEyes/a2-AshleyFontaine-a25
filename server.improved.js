@@ -42,7 +42,6 @@ const handlePost = function( request, response ) {
   request.on( "end", function() {
     console.log( JSON.parse( dataString ) )
     jsObject = JSON.parse( dataString )
-    console.log(jsObject.score)
     if(request.url === "/entry"){
 
       const grade = gradeScore(jsObject.score)
@@ -93,18 +92,18 @@ const handlePost = function( request, response ) {
           console.log(jsObject.password)
           if(appdata[i].password == jsObject.password){
             appdata[i] == ""
+            lb = constructLeaderboard()
+
+            response.writeHead( 200, "OK", {"Content-Type": "text/plain" })
+            response.end(lb)
+          } else {
+            console.log("Incorrect Password!")
+            return
           }
-          console.log("Incorrect Password!")
-          return
         }
       }
       console.log("User not found")
     }
-
-    lb = constructLeaderboard()
-
-    response.writeHead( 200, "OK", {"Content-Type": "text/plain" })
-    response.end(lb)
   })
 }
 
