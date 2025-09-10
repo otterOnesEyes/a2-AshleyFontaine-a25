@@ -9,9 +9,9 @@ const http = require( "http" ),
       port = 3000
 
 const appdata = [
-  { "player": "otter1", "password": "123", "score": 1000000, "class": "SSS+", "combo": 1000, "marvelous": 1000, "great": 0, "good": 0, "miss": 0, "completion": "All Marvelous"},
-  { "player": "otter2", "password": "123", "score": 195680, "class": "SSS+", "combo": 1000, "marvelous": 23, "great": 0, "good": 0, "miss": 0, "completion": "Full Combo"},
-  { "player": "otter3", "password": "123", "score": 0, "class": "F", "combo": 0, "marvelous": 23, "great": 0, "good": 0, "miss": 0, "completion": "Not Clear"},
+  { "player": "otter1", "password": "123", "score": 1000000, "grade": "SSS+", "combo": 1000, "marvelous": 1000, "great": 0, "good": 0, "miss": 0, "completion": "All Marvelous"},
+  { "player": "otter2", "password": "123", "score": 995680, "grade": "SSS+", "combo": 1000, "marvelous": 23, "great": 0, "good": 0, "miss": 0, "completion": "Full Combo"},
+  { "player": "otter3", "password": "123", "score": 0, "grade": "D", "combo": 0, "marvelous": 23, "great": 0, "good": 0, "miss": 0, "completion": "Not Clear"},
 ]
 
 const server = http.createServer( function( request,response ) {
@@ -114,6 +114,7 @@ const handlePost = function( request, response ) {
 }
 
 const constructLeaderboard = function () {
+  appdata.sort((a, b) => b.score - a.score)
   lb = "<tr><th>Rank</th><th>Player</th><th>Score</th><th>Grade</th><th>Combo</th><th>Complete</th></tr>"
   for(let i = 0; i < appdata.length; i++){
     e = appdata[i]
@@ -129,9 +130,11 @@ const constructLeaderboard = function () {
   return lb
 }
 
+
+
 const evalComplete = function (marv, great, good, miss){
   if((great + good + miss) == 0){
-    return "All Perfect"
+    return "All Marvelous"
   }
   if(miss == 0){
     return "Full Combo"

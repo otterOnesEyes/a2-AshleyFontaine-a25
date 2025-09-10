@@ -66,7 +66,7 @@ const loadTable = async function( event ) {
   body = ""
 
   const response = await fetch ( "/load", {
-    method:"GET",
+    method:"POST",
     body
   })
 
