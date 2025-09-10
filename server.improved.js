@@ -92,7 +92,7 @@ const handlePost = function( request, response ) {
           console.log("Deleting...")
           foundEntry = true
           if(appdata[i].password == jsObject.password){
-            appdata[i] = ""
+            appdata.splice(i, 1)
           } else {
             console.log("Incorrect Password!")
             return
