@@ -48,9 +48,11 @@ const handlePost = function( request, response ) {
       const grade = gradeScore(jsObject.score)
       const completion = evalComplete(jsObject.marvelous, jsObject.great, jsObject.good, jsObject.miss)
 
+      let foundEntry = false
       for(let i = 0 ; i < appdata.length; i++){
         if(appdata[i].player == jsObject.player){
           if(appdata[i].password == jsObject.password){
+            foundEntry = true
             const entry = appdata[i]
 
             entry.score = jsObject.score
@@ -62,39 +64,41 @@ const handlePost = function( request, response ) {
             entry.miss = jsObject.miss
             entry.completion = completion
           } else {
-            alert("Incorrect password!")
+            console.log("Incorrect Password!")
             return
           }
         }
       }
-
-      newEntry = {
-        player: jsObject.player,
-        password: jsObject.password,
-        score: jsObject.score,
-        class: grade,
-        combo: jsObject.combo,
-        marvelous: jsObject.marvelous,
-        great: jsObject.great,
-        good: jsObject.good,
-        miss: jsObject.miss,
-        completion: completion
+      if(!foundEntry){
+        newEntry = {
+          player: jsObject.player,
+          password: jsObject.password,
+          score: jsObject.score,
+          class: grade,
+          combo: jsObject.combo,
+          marvelous: jsObject.marvelous,
+          great: jsObject.great,
+          good: jsObject.good,
+          miss: jsObject.miss,
+          completion: completion
+        }
+        appdata.push(newEntry)
       }
 
-      appdata.push(newEntry)
-      
 
     } else if (request.url === "/delete"){
       for(let i = 0 ; i < appdata.length; i++){
         if(appdata[i].player == jsObject.player){
+          console.log(appdata[i].password)
+          console.log(jsObject.password)
           if(appdata[i].password == jsObject.password){
             appdata[i] == ""
           }
-          alert("Incorrect Password!")
+          console.log("Incorrect Password!")
           return
         }
       }
-      alert("User not found!")
+      console.log("User not found")
     }
 
     lb = constructLeaderboard()
@@ -158,7 +162,7 @@ const gradeScore = function( score ) {
     case(score > 0):
       return "B"
     case(score == 0):
-      return "F"
+      return "D"
   }
 }
 
