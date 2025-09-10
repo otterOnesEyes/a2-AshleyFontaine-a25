@@ -80,5 +80,5 @@ window.onload = function() {
          deletebutton = document.querySelector("#deletebutton");
   entrybutton.onclick = submit;
   deletebutton.onclick = remove;
-  loadTable()
+  loadTable
 }

@@ -12,40 +12,51 @@
   <body>
     <div style="width: 100%; overflow: hidden;">
       <div id="left">
-        <form>
-          <div style="width: 60%;">
+        <div class="formBox">
+          <h2>Create/Edit Entry</h2>
+          <p>Input your username, score, combo, and accuracy.<br>
+          Set a password to update or delete your entry later!</p>
+          <form>
+            <div style="width: 60%;">
+              <label for="username">Username</label>
+              <input type="text" id="eusername">
+              <br>
+              <label for="password">Password</label>
+              <input type="password" id="epassword">
+              <br>
+              <label for="score">Score</label>
+              <input type="number" id="score" value="0" min="0" max="1000000">
+              <br>
+              <label for="combo">Max Combo</label>
+              <input type="number" id="combo" value="0" min="0" max="1000">
+            </div>
+            <br>
+            <br>
+            <p>Accuracy Breakdown</p>
+            <input type="number" id="marvelous" value="0" min="0" max="1000">
+            <input type="number" id="great" value="0" min="0" max="1000">
+            <input type="number" id="good" value="0" min="0" max="1000">
+            <input type="number" id="miss" value="0" min="0" max="1000">
+            <br><br>
+            <button id="entrybutton">submit</button>
+          </form>
+        </div>
+        <br>
+        <div class="formBox">
+          <h2>Delete Entry</h2>
+          <p>Input the username of the entry to delete.<br>
+          You cannot delete an entry without that user's password!</p>
+          <form>
             <label for="username">Username</label>
-            <input type="text" id="eusername">
+            <input type="text" id="dusername">
             <br>
             <label for="password">Password</label>
-            <input type="password" id="epassword">
-            <br>
-            <label for="score">Score</label>
-            <input type="number" id="score" value="0" min="0" max="1000000">
-            <br>
-            <label for="combo">Max Combo</label>
-            <input type="number" id="combo" value="0" min="0" max="1000">
-          </div>
-          <br>
-          <br>
-          <p>Accuracy Breakdown</p>
-          <input type="number" id="marvelous" value="0" min="0" max="1000">
-          <input type="number" id="great" value="0" min="0" max="1000">
-          <input type="number" id="good" value="0" min="0" max="1000">
-          <input type="number" id="miss" value="0" min="0" max="1000">
-          <br><br>
-          <button id="entrybutton">submit</button>
-        </form>
-        <br>
-        <form>
-          <label for="username">Username</label>
-          <input type="text" id="dusername">
-          <br>
-          <label for="password">Password</label>
-          <input type="password" id="dpassword">
-          <br><br>
-          <button id="deletebutton">submit</button>
-        </form>
+            <input type="password" id="dpassword">
+            <br><br>
+            <button id="deletebutton">submit</button>
+          </form>
+        </div>
+        
       </div>
       <div id="right">
         <table id="leaderboard">

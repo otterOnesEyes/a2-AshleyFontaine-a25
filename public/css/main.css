@@ -17,8 +17,16 @@ body {
   height: 300px;
 }
 
-label {
+table {
+  width: 100%;
+  background-color: rgb(200, 200, 200);
+  border-width: 3px;
+  border-color: black;
+  border-style: solid;
 }
 
-input {
+.formBox {
+  border-width: 4px;
+  border-color: black;
+  border-style: dashed;
 }
