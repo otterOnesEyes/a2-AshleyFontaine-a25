@@ -60,6 +60,18 @@ const remove = async function( event ) {
   console.log( "text:", text )
 }
 
+const loadTable = async function( event ) {
+  event.preventDefault()
+
+  const response = await fetch ( "/load", {
+    method:"GET"
+  })
+
+  const text = await response.text()
+
+  document.querySelector("#leaderboard").innerHTML = text
+}
+
 window.onload = function() {
    const entrybutton = document.querySelector("#entrybutton"),
          deletebutton = document.querySelector("#deletebutton");

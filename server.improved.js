@@ -86,24 +86,28 @@ const handlePost = function( request, response ) {
 
 
     } else if (request.url === "/delete"){
+      let foundEntry = false
       for(let i = 0 ; i < appdata.length; i++){
         if(appdata[i].player == jsObject.player){
-          console.log(appdata[i].password)
-          console.log(jsObject.password)
+          foundEntry = true
           if(appdata[i].password == jsObject.password){
             appdata[i] == ""
-            lb = constructLeaderboard()
-
-            response.writeHead( 200, "OK", {"Content-Type": "text/plain" })
-            response.end(lb)
           } else {
             console.log("Incorrect Password!")
             return
           }
         }
       }
-      console.log("User not found")
+      if(!foundEntry){
+        console.log("User not found")
+        return
+      }
     }
+
+    lb = constructLeaderboard()
+
+    response.writeHead( 200, "OK", {"Content-Type": "text/plain" })
+    response.end(lb)
   })
 }
 
