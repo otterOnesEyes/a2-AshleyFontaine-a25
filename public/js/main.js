@@ -63,8 +63,11 @@ const remove = async function( event ) {
 const loadTable = async function( event ) {
   event.preventDefault()
 
+  body = ""
+
   const response = await fetch ( "/load", {
-    method:"GET"
+    method:"GET",
+    body
   })
 
   const text = await response.text()

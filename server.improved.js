@@ -45,6 +45,7 @@ const handlePost = function( request, response ) {
     if(request.url === "/entry"){
 
       const grade = gradeScore(jsObject.score)
+      console.log(grade)
       const completion = evalComplete(jsObject.marvelous, jsObject.great, jsObject.good, jsObject.miss)
 
       let foundEntry = false
@@ -55,7 +56,7 @@ const handlePost = function( request, response ) {
             const entry = appdata[i]
 
             entry.score = jsObject.score
-            entry.class = grade
+            entry.grade = grade
             entry.combo = jsObject.combo
             entry.marvelous = jsObject.marvelous
             entry.great = jsObject.great
@@ -73,7 +74,7 @@ const handlePost = function( request, response ) {
           player: jsObject.player,
           password: jsObject.password,
           score: jsObject.score,
-          class: grade,
+          grade: grade,
           combo: jsObject.combo,
           marvelous: jsObject.marvelous,
           great: jsObject.great,
@@ -165,10 +166,8 @@ const gradeScore = function( score ) {
     case(score >= 700000):
       return "A"
     case(score > 0):
-      console.log("B!")
       return "B"
     case(score == 0):
-      console.log("D!")
       return "D"
   }
 }
