@@ -68,17 +68,21 @@ const handlePost = function( request, response ) {
         }
       }
 
-      entry = appdata[appdata.length]
-      entry.player = jsObject.player
-      entry.password = jsObject.password
-      entry.score = jsObject.score
-      entry.class = grade
-      entry.combo = jsObject.combo
-      entry.marvelous = jsObject.marvelous
-      entry.great = jsObject.great
-      entry.good = jsObject.good
-      entry.miss = jsObject.miss
-      entry.completion = completion
+      newEntry = {
+        player: jsObject.player,
+        password: jsObject.password,
+        score: jsObject.score,
+        class: grade,
+        combo: jsObject.combo,
+        marvelous: jsObject.marvelous,
+        great: jsObject.great,
+        good: jsObject.good,
+        miss: jsObject.miss,
+        completion: completion
+      }
+
+      appdata.push(newEntry)
+      
 
     } else if (request.url === "/delete"){
       for(let i = 0 ; i < appdata.length; i++){
