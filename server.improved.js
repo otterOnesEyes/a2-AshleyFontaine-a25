@@ -142,6 +142,7 @@ const evalComplete = function (marv, great, good, miss){
 }
 
 const gradeScore = function( score ) {
+  console.log(score)
   switch(true){
     case(score == 1000000):
       return "MASTER"
@@ -164,8 +165,10 @@ const gradeScore = function( score ) {
     case(score >= 700000):
       return "A"
     case(score > 0):
+      console.log("B!")
       return "B"
     case(score == 0):
+      console.log("D!")
       return "D"
   }
 }
