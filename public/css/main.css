@@ -1,25 +1,35 @@
 body {
   background:rgb(255, 255, 255);
   color:black;
+  font-family: "Lexend", sans-serif;
 }
 
-#left {
-  width: calc(50% - 20px);
-  background-color: #e50065;
-  float: left;
-  padding: 10px;
+h1, h2 {
+  font-family: "Knewave", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 
-#right {
-  width: 50%;
-  background-color: #00a0e9;
-  margin-left: 50%;
-  height: 800px;
-  padding: 5px;
+tr {
+  border-width: 2px, 0px, 0px, 0px;
+  border-color: rgb(150,150,150);
+  border-style: solid;
+}
+
+td {
+  font-family: "Lexend", sans-serif;
+  border-width: 0px, 2px, 0px, 0px;
+  border-color: rgb(150,150,150);
+  border-style: solid;
+}
+
+th {
+  font-family: "Lexend", sans-serif;
+  font-size: 14px;
 }
 
 table {
-  width: calc(100%-10px);
+  width: calc(100% - 10px);
   background-color: rgb(200, 200, 200);
   border-width: 3px;
   border-color: black;
@@ -28,7 +38,25 @@ table {
   text-align: center;
 }
 
-.formBox {
+.container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "forms leaderboard";
+  grid-template-columns: 1fr 2fr;
+}
+
+.container > div.header{
+  grid-area: header;
+  width: calc(100% - 40px);
+  border-width: 0px 0px 4px 0px;
+  border-style: solid;
+  border-color: #fdd000;
+  text-align: center;
+  padding: 20px;
+}
+
+.forms > div.form {
   border-width: 4px;
   background-color: white;
   border-color: #fdd000;
@@ -36,18 +64,32 @@ table {
   padding:4px;
 }
 
-tr {
-  border-top-width: 2px;
-  border-color: rgb(150,150,150);
-  border-style: solid;
+.container > div.forms {
+  grid-area: forms;
+  background-color: #e50065;
+  float: left;
+  padding: 10px;
 }
 
-td {
-  border-right-width: 2px;
-  border-color: rgb(150,150,150);
-  border-style: solid;
+.container > div.leaderboard {
+  grid-area: leaderboard;
+  background-color: #00a0e9;
+  height: 800px;
+  padding: 5px;
 }
 
 #lbhead {
   border-top-width: 0px;
+}
+
+#desc {
+  width: 60%;
+  position:relative;
+  left: 20%
+}
+
+.accuracyLabel {
+  font-size: 12px;
+  width: 66px;
+  display: inline-block
 }
