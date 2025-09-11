@@ -27,7 +27,9 @@ const handleGet = function( request, response ) {
 
   if( request.url === "/" ) {
     sendFile( response, "public/index.html" )
-  }else{
+  }else if( request.url === "/load"){
+    sendLB( response )
+  } else {
     sendFile( response, filename )
   }
 }
@@ -193,6 +195,11 @@ const sendFile = function( response, filename ) {
 
      }
    })
+}
+
+const sendLB = function (response) {
+  response.writeHeader( 200, { "Content-Type": "text/plain" })
+  response.end( constructLeaderboard() )
 }
 
 server.listen( process.env.PORT || port )

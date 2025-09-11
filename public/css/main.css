@@ -19,12 +19,13 @@ body {
 }
 
 table {
-  width: 100%;
+  width: calc(100%-10px);
   background-color: rgb(200, 200, 200);
   border-width: 3px;
   border-color: black;
   border-style: solid;
   padding:5px;
+  text-align: center;
 }
 
 .formBox {
@@ -37,6 +38,12 @@ table {
 
 tr {
   border-top-width: 2px;
+  border-color: rgb(150,150,150);
+  border-style: solid;
+}
+
+td {
+  border-right-width: 2px;
   border-color: rgb(150,150,150);
   border-style: solid;
 }
