@@ -29,10 +29,10 @@
           <p>Input your username, score, combo, and accuracy.<br>
           Set a password to update or delete your entry later!</p>
           <form>
-            <label for="username">Username</label>
+            <label for="eusername">Username</label>
             <input type="text" id="eusername">
             <br>
-            <label for="password">Password</label>
+            <label for="epassword">Password</label>
             <input type="password" id="epassword">
             <br>
             <label for="score">Score</label>
@@ -62,10 +62,10 @@
             <p>Input the username of the entry to delete.<br>
             You cannot delete an entry without that user's password!</p>
             <form>
-              <label for="username">Username</label>
+              <label for="dusername">Username</label>
               <input type="text" id="dusername">
               <br>
-              <label for="password">Password</label>
+              <label for="dpassword">Password</label>
               <input type="password" id="dpassword">
               <br><br>
               <button id="deletebutton">Submit</button>
@@ -74,7 +74,7 @@
       </div>
       <div class="leaderboard">
         <table id="leaderboard">
-          <td><button id="loadbutton">Load Leaderboard</button></td>
+          <tr><td><button id="loadbutton">Load Leaderboard</button></td></tr>
         </table>
       </div>
     </div>

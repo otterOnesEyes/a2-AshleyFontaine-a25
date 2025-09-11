@@ -7,6 +7,7 @@ const submit = async function( event ) {
   // remains to this day
   event.preventDefault()
   
+  // get the data from each entry form
   const uninput = document.querySelector( "#eusername" ),
         pwdinput = document.querySelector( '#epassword' ),
         scoreinput = document.querySelector( '#score' ),
@@ -33,18 +34,21 @@ const submit = async function( event ) {
 
   const text = await response.text()
 
+  // 'text' is the new updated leaderboard
   document.querySelector("#leaderboard").innerHTML = text
 
   console.log( "text:", text )
 }
 
+
 const remove = async function( event ) {
   event.preventDefault()
 
+  // collect data from relevant inputs
   const uninput = document.querySelector( '#dusername' ),
         pwdinput = document.querySelector( '#dpassword' ),
         json = { player: uninput.value,
-                  password: pwdinput.value
+                 password: pwdinput.value
         },
         body = JSON.stringify( json )
 
@@ -60,9 +64,9 @@ const remove = async function( event ) {
   console.log( "text:", text )
 }
 
+// Loads the table without attempting to change it
 const loadTable = async function( event ) {
   event.preventDefault()
-
 
   const response = await fetch ( "/load", {
     method:"GET"

@@ -78,6 +78,12 @@ table {
   padding: 5px;
 }
 
+.accuracyLabel {
+  font-size: 12px;
+  width: 66px;
+  display: inline-block
+}
+
 #lbhead {
   border-top-width: 0px;
 }
@@ -86,10 +92,4 @@ table {
   width: 60%;
   position:relative;
   left: 20%
-}
-
-.accuracyLabel {
-  font-size: 12px;
-  width: 66px;
-  display: inline-block
 }
