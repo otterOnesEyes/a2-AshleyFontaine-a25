@@ -14,7 +14,8 @@ body {
   width: 50%;
   background-color: #00a0e9;
   margin-left: 50%;
-  height: 300px;
+  height: 800px;
+  padding: 5px;
 }
 
 table {
@@ -29,13 +30,13 @@ table {
 .formBox {
   border-width: 4px;
   background-color: white;
-  border-color: black;
+  border-color: #fdd000;
   border-style: dashed;
   padding:4px;
 }
 
 tr {
-  border-top-width: 1px;
+  border-top-width: 2px;
   border-color: rgb(150,150,150);
   border-style: solid;
 }

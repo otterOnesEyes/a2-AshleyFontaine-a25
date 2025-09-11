@@ -78,7 +78,8 @@ const loadTable = async function( event ) {
 window.onload = function() {
    const entrybutton = document.querySelector("#entrybutton"),
          deletebutton = document.querySelector("#deletebutton");
+         loadbutton = document.querySelector("#loadbutton");
   entrybutton.onclick = submit;
   deletebutton.onclick = remove;
-  loadTable
+  loadbutton.onclick = loadTable;
 }
