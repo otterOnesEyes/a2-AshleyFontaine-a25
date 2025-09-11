@@ -38,6 +38,10 @@ table {
   text-align: center;
 }
 
+button, input {
+  font-family: "Lexend", sans-serif;
+}
+
 .container {
   display: grid;
   grid-template-areas:
